@@ -1,0 +1,527 @@
+
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* UNIVERSAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #101010,
+        #1b1b1b,
+        #050505
+    );
+
+    background-size: 300% 300%;
+    animation: gradientBG 10s ease infinite;
+}
+
+
+/* BACKGROUND ANIMATION */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ROTATING ORBIT CIRCLE 1 */
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 550px;
+    height: 550px;
+
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+    border: 2px solid transparent;
+
+    border-top-color: white;
+    border-bottom-color: rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.6),
+        inset 0 0 15px rgba(255,255,255,0.15);
+
+    animation: rotateCircle 8s linear infinite;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+/* ROTATING ORBIT CIRCLE 2 */
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 680px;
+    height: 680px;
+
+    top: 50%;
+    left: 50%;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.2);
+
+    animation: rotateReverse 15s linear infinite;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+/* CIRCLE ANIMATION */
+@keyframes rotateCircle {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes rotateReverse {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+
+/* MAIN CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 35px 30px;
+
+    border-radius: 25px;
+
+    background: rgba(15,15,15,0.85);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.2),
+        0 0 35px rgba(255,255,255,0.08),
+        inset 0 0 20px rgba(255,255,255,0.05);
+
+    transition: 0.4s ease;
+}
+
+
+/* CONTAINER HOVER */
+.container:hover {
+    transform: translateY(-5px);
+
+    border-color: white;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.5),
+        0 0 45px rgba(255,255,255,0.2),
+        inset 0 0 20px rgba(255,255,255,0.08);
+}
+
+
+/* HEADING */
+.container h2 {
+    color: white;
+
+    text-align: center;
+    font-size: 27px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 18px rgba(255,255,255,0.5);
+}
+
+
+/* FORM */
+form {
+    margin: 25px 0 10px;
+}
+
+form p {
+    color: #cccccc;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+
+/* INPUT */
+form input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 15px;
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid #555;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 17px;
+
+    outline: none;
+    transition: 0.3s;
+}
+
+form input:focus {
+    border-color: white;
+
+    box-shadow:
+        0 0 10px white,
+        0 0 20px rgba(255,255,255,0.3);
+}
+
+
+/* DROPDOWN */
+.dropdown {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    margin-top: 25px;
+}
+
+
+/* EXCHANGE ICON */
+.dropdown i {
+    color: white;
+
+    font-size: 25px;
+    margin-top: 15px;
+
+    transition: 0.4s;
+}
+
+.dropdown i:hover {
+    transform: rotate(180deg);
+
+    color: white;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px white;
+}
+
+
+/* SELECT CONTAINER */
+.select-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    width: 120px;
+    padding: 10px;
+
+    border-radius: 12px;
+
+    border: 1px solid #555;
+
+    background: rgba(255,255,255,0.06);
+
+    transition: 0.3s;
+}
+
+.select-container:hover {
+    border-color: white;
+
+    box-shadow:
+        0 0 10px white,
+        0 0 20px rgba(255,255,255,0.3);
+}
+
+
+/* FLAG IMAGE */
+.select-container img {
+    max-width: 30px;
+}
+
+
+/* SELECT */
+.select-container select {
+    width: auto;
+    max-width: 75px;
+
+    background: #111;
+    color: white;
+
+    border: none;
+    outline: none;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.select-container select option {
+    background: #111;
+    color: white;
+}
+
+
+/* CONVERSION MESSAGE */
+.msg {
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-align: center;
+
+    margin: 30px 0;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px rgba(255,255,255,0.4);
+}
+
+
+/* CONVERT BUTTON */
+form button {
+    width: 100%;
+    height: 53px;
+
+    border: 1px solid white;
+    border-radius: 12px;
+
+    background: #080808;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+/* BUTTON HOVER */
+form button:hover {
+    transform: scale(1.03);
+
+    background: white;
+    color: black;
+
+    box-shadow:
+        0 0 15px white,
+        0 0 30px rgba(255,255,255,0.5);
+}
+
+
+/* BUTTON CLICK */
+form button:active {
+    transform: scale(0.97);
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .container h2 {
+        font-size: 23px;
+    }
+
+    .dropdown {
+        gap: 8px;
+    }
+
+    .select-container {
+        width: 110px;
+        padding: 8px;
+    }
+
+    .select-container select {
+        font-size: 13px;
+    }
+
+    .dropdown i {
+        font-size: 20px;
+    }
+
+    .msg {
+        font-size: 14px;
+    }
+
+    body::before {
+        width: 350px;
+        height: 350px;
+    }
+
+    body::after {
+        width: 430px;
+        height: 430px;
+    }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 340px) {
+
+    .container {
+        padding: 20px 14px;
+    }
+
+    .dropdown {
+        gap: 5px;
+    }
+
+    .select-container {
+        width: 100px;
+    }
+
+    .container h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* REDUCE MOTION */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
